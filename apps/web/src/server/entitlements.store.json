@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "defaults": {
+    "tools": []
+  },
+  "overrides": {
+    "e7be3f14-8d56-4ce0-9787-a93a1c9535cc": {
+      "tools": [
+        "pm",
+        "agenda"
+      ]
+    }
+  }
+}

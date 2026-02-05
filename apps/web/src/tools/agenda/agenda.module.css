@@ -1,0 +1,453 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--background);
+    color: var(--text);
+    overflow: hidden;
+}
+
+.header {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+}
+
+.titleWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.scrollArea {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.daySection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.dayHeader {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+    padding-bottom: 0.25rem;
+    border-bottom: 1px dashed var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.itemCard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.itemCard:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.itemContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.itemTitle {
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.itemMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.onlineBadge {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+}
+
+.projectBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.actionBtn {
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.actionBtn:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+/* FAB Styles */
+.fab {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+}
+
+.fab:hover {
+    transform: scale(1.1) rotate(90deg);
+    background: #a855f7;
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.typeSelector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.typeBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.75rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+    background: var(--secondary);
+    color: var(--text-muted);
+}
+
+.typeBtnActive {
+    border-color: var(--primary);
+    background: rgba(147, 51, 234, 0.1);
+    color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.input {
+    background: var(--secondary);
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--text);
+    font-size: 0.875rem;
+    width: 100%;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--surface);
+}
+
+.saveBtn {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.saveBtn:hover {
+    background: #a14bf7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+}
+
+/* Item Variations */
+.itemCardDone {
+    opacity: 0.6;
+}
+
+.itemTitleDone {
+    text-decoration: line-through;
+}
+
+.noteCard {
+    border-left: 4px solid #fbbf24;
+}
+
+.taskCard {
+    border-left: 4px solid var(--primary);
+}
+
+.apptCard {
+    border-left: 4px solid #ef4444;
+}
+
+.listCard {
+    border-left: 4px solid #10b981;
+}
+
+/* Breakdown Styles */
+.breakdownSection {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.subItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.subItemDone {
+    text-decoration: line-through;
+}
+
+.subItemInput {
+    background: transparent;
+    border: none;
+    flex: 1;
+    color: var(--text);
+    font-size: 0.8rem;
+}
+
+.subItemInput:focus {
+    outline: none;
+}
+
+.checkbox {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.6rem;
+}
+
+.checkboxActive {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+    text-align: center;
+    gap: 1rem;
+}
+
+.loadingOverlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--primary);
+}
+
+.viewControls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navGroup {
+    display: flex;
+    align-items: center;
+    background: var(--secondary);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    gap: 0.25rem;
+}
+
+.navBtn {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.navBtn:hover {
+    background: var(--surface);
+    color: var(--primary);
+}
+
+.todayBtn {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    color: var(--primary);
+}
+
+.toggleGroup {
+    display: flex;
+    background: var(--secondary);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+}
+
+.toggleBtn {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.toggleBtnActive {
+    background: var(--surface);
+    color: var(--primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.weeklyScroll {
+    overflow-x: auto;
+}
+
+.weeklyGrid {
+    display: flex;
+    gap: 1rem;
+    min-width: 1000px;
+}
+
+.weeklyGrid .daySection {
+    flex: 1;
+    min-width: 15rem;
+    background: rgba(147, 51, 234, 0.02);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+}
+
+.dailyList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.itemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.dayEmpty {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2rem 0;
+    border: 1px dashed var(--border);
+    border-radius: 0.75rem;
+}
+
+.deleteBtn {
+    color: #ef4444 !important;
+}
+
+.deleteBtn:hover {
+    background: rgba(239, 68, 68, 0.1) !important;
+}
